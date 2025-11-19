@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegoteca</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎮 Catálogo de Juegos</h1>
+        <p class="subtitle">Explora, aprende y juega</p>
+    </header>
+
+    <div class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <label>📂 Filtrar por categoría:</label>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="todos">Todos</button>
+                    <button class="category-btn" data-category="estrategia">Estrategia</button>
+                    <button class="category-btn" data-category="cartas">Cartas</button>
+                    <button class="category-btn" data-category="mesa">Mesa</button>
+                    <button class="category-btn" data-category="exterior">Exterior</button>
+                    <button class="category-btn" data-category="logica">Lógica</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="games-grid" id="gamesGrid">
+            <!-- Los juegos se cargarán aquí -->
+        </div>
+    </div>
+</body>
+ <script src="script.js"></script>
+</html>
