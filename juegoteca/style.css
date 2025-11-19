@@ -1,180 +1,198 @@
+/* Reset básico */
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: #e0e0e0;
-            min-height: 100vh;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, #1a004d, #0a001a);
+    color: #e0e0e0;
+    min-height: 100vh;
+}
 
-        header {
-            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3);
-        }
+/* HEADER GAMER */
+header {
+    background: linear-gradient(135deg, #7b2eff 0%, #b454ff 100%);
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(180, 84, 255, 0.7);
+    border-bottom: 3px solid #d9a6ff;
+}
 
-        h1 {
-            color: #000;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+h1 {
+    color: #fff;
+    font-size: 3rem;
+    text-shadow: 0 0 10px #ffb7ff;
+}
 
-        .subtitle {
-            color: #1a1a1a;
-            font-size: 1.1rem;
-        }
+.subtitle {
+    color: #ffe6ff;
+    font-size: 1.2rem;
+    margin-top: .3rem;
+}
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+/* CONTENEDOR */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
-        .filters {
-            background: #1a1a1a;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            border: 2px solid #00bcd4;
-        }
+/* CUADRO DE FILTROS 🎮 */
+.filters {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 2px solid #8b44ff;
+    box-shadow: 0 0 12px rgba(139, 68, 255, 0.4);
+    backdrop-filter: blur(6px);
+}
 
-        .filter-group {
-            margin-bottom: 1rem;
-        }
+.filter-group label {
+    color: #d5a6ff;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+}
 
-        .filter-group label {
-            color: #00bcd4;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
+/* BOTONES DE CATEGORÍA 🎯 */
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
 
-        .category-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+.category-btn {
+    background: #250044;
+    color: #d28bff;
+    border: 2px solid #8b44ff;
+    padding: 0.6rem 1.3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    font-size: 0.95rem;
+    text-shadow: 0 0 6px #8b44ff;
+}
 
-        .category-btn {
-            background: #2a2a2a;
-            color: #00bcd4;
-            border: 2px solid #00bcd4;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
+.category-btn:hover {
+    background: #8b44ff;
+    color: #fff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 12px #b67aff;
+}
 
-        .category-btn:hover {
-            background: #00bcd4;
-            color: #000;
-            transform: translateY(-2px);
-        }
+.category-btn.active {
+    background: #c07bff;
+    color: #000;
+    border-color: #fff;
+}
 
-        .category-btn.active {
-            background: #00bcd4;
-            color: #000;
-        }
+/* GRID DE JUEGOS 🎲 */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 2.2rem;
+}
 
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+/* CARD DE JUEGO */
+.game-card {
+    background: #140028;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #3a0066;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(140, 0, 255, 0.2);
+}
 
-        .game-card {
-            background: #1a1a1a;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid #2a2a2a;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
+.game-card:hover {
+    border-color: #a94dff;
+    transform: translateY(-7px);
+    box-shadow: 0 0 25px rgba(170, 84, 255, 0.9);
+}
 
-        .game-card:hover {
-            border-color: #00bcd4;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
-        }
+/* HEADER DE CADA JUEGO */
+.game-header {
+    background: linear-gradient(135deg, #9b37ff, #d26bff);
+    padding: 1.5rem;
+    color: #fff;
+}
 
-        .game-header {
-            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-            padding: 1.5rem;
-            color: #000;
-        }
+.game-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px #fff;
+}
 
-        .game-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
+.game-category {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 0.4rem 0.9rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    border: 1px solid #fff;
+}
 
-        .game-category {
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-        }
+/* CUERPO DE LA CARD */
+.game-body {
+    padding: 1.5rem;
+}
 
-        .game-body {
-            padding: 1.5rem;
-        }
+/* SECCIONES */
+.section-title {
+    color: #c17aff;
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin-bottom: .4rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    text-shadow: 0 0 8px #9b37ff;
+}
 
-        .game-section {
-            margin-bottom: 1.5rem;
-        }
+.section-content {
+    color: #d1c3e0;
+    line-height: 1.6;
+}
 
-        .section-title {
-            color: #00bcd4;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+.section-content ul {
+    margin-left: 1.5rem;
+    margin-top: 0.6rem;
+}
 
-        .section-content {
-            color: #b0b0b0;
-            line-height: 1.6;
-        }
+.section-content li {
+    margin-bottom: 0.3rem;
+}
 
-        .section-content ul {
-            margin-left: 1.5rem;
-            margin-top: 0.5rem;
-        }
+/* ICONOS DURACIÓN / JUGADORES */
+.players, .duration {
+    display: inline-block;
+    background: #250044;
+    padding: 0.55rem 1.1rem;
+    border-radius: 7px;
+    margin-right: 0.5rem;
+    margin-top: 0.6rem;
+    border: 1px solid #8b44ff;
+    color: #dbaaff;
+    text-shadow: 0 0 5px #8b44ff;
+}
 
-        .section-content li {
-            margin-bottom: 0.3rem;
-        }
+/* Iconos neon */
+.icon {
+    color: #ffb7ff;
+}
 
-        .players, .duration {
-            display: inline-block;
-            background: #2a2a2a;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-            border: 1px solid #00bcd4;
-        }
+/* Responsive */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
 
-        .icon {
-            color: #00bcd4;
-        }
-
-        @media (max-width: 768px) {
-            .games-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-        }
+    h1 {
+        font-size: 2.3rem;
+    }
+}
