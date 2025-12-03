@@ -3,13 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juegoteca</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Juegoteca - ProA La Falda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3);
+        }
+
+        h1 {
+            color: #000;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #1a1a1a;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .filters {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border: 2px solid #00bcd4;
+        }
+
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+
+        .filter-group label {
+            color: #00bcd4;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .category-btn {
+            background: #2a2a2a;
+            color: #00bcd4;
+            border: 2px solid #00bcd4;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .category-btn:hover {
+            background: #00bcd4;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .category-btn.active {
+            background: #00bcd4;
+            color: #000;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #2a2a2a;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            border-color: #00bcd4;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+        }
+
+        .game-header {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            padding: 1.5rem;
+            color: #000;
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-category {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .game-body {
+            padding: 1.5rem;
+        }
+
+        .game-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            color: #00bcd4;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-content {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        .section-content ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.3rem;
+        }
+
+        .section-content a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .section-content a:hover {
+            color: #00e5ff;
+            text-decoration: underline;
+        }
+
+        .players, .duration {
+            display: inline-block;
+            background: #2a2a2a;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #00bcd4;
+        }
+
+        .icon {
+            color: #00bcd4;
+        }
+
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>🎮 Catálogo de Juegos</h1>
-        <p class="subtitle">Explora, aprende y juega</p>
+        <h1>🎮 Juegoteca ProA La Falda</h1>
+        <p class="subtitle">Biblioteca digital de juegos - Explora, aprende y juega</p>
     </header>
 
     <div class="container">
@@ -18,11 +211,9 @@
                 <label>📂 Filtrar por categoría:</label>
                 <div class="category-buttons">
                     <button class="category-btn active" data-category="todos">Todos</button>
-                    <button class="category-btn" data-category="estrategia">Estrategia</button>
                     <button class="category-btn" data-category="cartas">Cartas</button>
                     <button class="category-btn" data-category="mesa">Mesa</button>
                     <button class="category-btn" data-category="exterior">Exterior</button>
-                    <button class="category-btn" data-category="logica">Lógica</button>
                 </div>
             </div>
         </div>
@@ -31,6 +222,210 @@
             <!-- Los juegos se cargarán aquí -->
         </div>
     </div>
+
+    <script>
+        const games = [
+            {
+                title: "5 o Nada",
+                category: "cartas",
+                players: "2 jugadores",
+                duration: "10-15 min",
+                description: "Juego de palabras rápido donde debes pensar palabras que comiencen con la última letra de la palabra anterior en máximo 5 segundos.",
+                rules: [
+                    "Se define quién empieza con piedra, papel o tijera",
+                    "Cada jugador dice una palabra que comience con la última letra de la anterior",
+                    "Tienes máximo 5 segundos para responder",
+                    "Si no respondes, el punto va al rival",
+                    "Las palabras rápidas suman 2 puntos, las lentas 1 punto",
+                    "Gana quien llegue a 15 puntos con diferencia de dos"
+                ],
+                materials: [
+                    "No requiere materiales físicos",
+                    "Solo agilidad mental y vocabulario"
+                ]
+            },
+            {
+                title: "Garabato Descompuesto",
+                category: "mesa",
+                players: "3+ jugadores",
+                duration: "15-20 min",
+                description: "Versión del teléfono descompuesto con dibujos. Cada jugador dibuja lo que ve y el resultado final suele ser hilarante.",
+                rules: [
+                    "Cada jugador escribe un concepto u objeto para dibujar",
+                    "Se sortean y uno se elige al azar",
+                    "El primer jugador tiene pocos segundos para leer y dibujar",
+                    "Cada jugador replica el dibujo que ve en tiempo limitado",
+                    "El último jugador escribe qué cree que representa",
+                    "Se comparan la palabra inicial, los dibujos y la interpretación final"
+                ],
+                materials: [
+                    "Hojas de papel para cada jugador",
+                    "Lápices o marcadores",
+                    "Cronómetro o celular"
+                ],
+                video: "https://youtube.com/shorts/Hc39vWgGk_U?si=KCoddPsjwOctD5lV"
+            },
+            {
+                title: "Pelota Arriba",
+                category: "exterior",
+                players: "6 jugadores (2 equipos de 3)",
+                duration: "15-30 min",
+                description: "Juego de pelota por equipos donde deben realizar pases controlados antes de devolver la pelota al otro lado.",
+                rules: [
+                    "Dos equipos de tres jugadores se ubican en los sectores delanteros de la cancha",
+                    "El juego comienza con un pase alto, a modo de saque",
+                    "Un jugador toma la pelota con las manos del lado receptor",
+                    "Realiza un autopase hacia arriba y luego la envía a un compañero",
+                    "La pelota debe pasar por los tres jugadores del equipo",
+                    "Después se devuelve al otro lado"
+                ],
+                materials: [
+                    "Pelota de voleibol o similar",
+                    "Cancha o espacio delimitado",
+                    "Red o línea divisoria (opcional)"
+                ]
+            },
+            {
+                title: "Cono al Suelo",
+                category: "exterior",
+                players: "4+ jugadores",
+                duration: "20-30 min",
+                description: "Juego dinámico de voley donde cada jugador protege dos conos mientras intenta derribar los de los oponentes usando recepción baja.",
+                rules: [
+                    "Los jugadores forman un círculo grande",
+                    "Cada uno tiene dos conos propios a los costados levemente adelantados",
+                    "El juego comienza con un golpe alto de voley",
+                    "Todos los ataques y defensas se hacen con recepción baja",
+                    "Debes dirigir la pelota hacia los conos de un oponente para derribarlos",
+                    "Usa recepción baja para proteger tus propios conos",
+                    "Derribar un cono rival: +2 puntos",
+                    "Perder un cono propio: -2 puntos",
+                    "Si la pelota sale o queda en el centro sin derribar nada: -1 punto al último que la tocó",
+                    "Gana quien llegue primero a 24 puntos con diferencia de 2"
+                ],
+                materials: [
+                    "Pelota de voleibol",
+                    "2 conos por jugador",
+                    "Espacio amplio para formar el círculo"
+                ]
+            },
+            {
+                title: "Juego de Caballos",
+                category: "cartas",
+                players: "4 jugadores + 1 árbitro",
+                duration: "20-30 min",
+                description: "Juego de carreras con cartas españolas donde cada jugador tiene un caballo que avanza según las cartas que salen.",
+                rules: [
+                    "Se juega con 2 mazos de cartas españolas sin comodines",
+                    "Se colocan los caballos de basto, oro, copa y espada en fila",
+                    "Cada participante elige un caballo",
+                    "El árbitro va tirando cartas",
+                    "El caballo del palo que sale se mueve un puesto adelante",
+                    "Deben superar 10 puestos en total",
+                    "Si los 4 caballos superan una fila, se revela la carta lateral",
+                    "El caballo del palo revelado retrocede un puesto",
+                    "Gana el primer caballo en completar el recorrido"
+                ],
+                materials: [
+                    "2 mazos de cartas españolas sin comodines",
+                    "4 fichas o figuras para los caballos",
+                    "Tablero o espacio para marcar las 10 posiciones"
+                ]
+            },
+            {
+                title: "Mancha Remate",
+                category: "exterior",
+                players: "5+ jugadores + 1 mayor",
+                duration: "15-25 min",
+                description: "Juego de persecución combinado con pases de voley donde la letra que cae determina quién será la mancha.",
+                rules: [
+                    "Un mayor (que no participa) asigna una letra secreta a cada participante",
+                    "Los jugadores forman una ronda",
+                    "Se pasan la pelota con pases de voley",
+                    "En cada pase se dice en voz alta una letra del abecedario en orden",
+                    "Si la pelota cae al suelo en una letra específica, el participante con esa letra se convierte en la mancha",
+                    "La mancha debe perseguir y tocar a los demás jugadores",
+                    "Los otros jugadores corren para evitar ser tocados"
+                ],
+                materials: [
+                    "Pelota de voleibol",
+                    "Espacio amplio para correr",
+                    "Letras del abecedario asignadas por el mayor"
+                ]
+            }
+        ];
+
+        function renderGames(filter = 'todos') {
+            const grid = document.getElementById('gamesGrid');
+            const filteredGames = filter === 'todos' 
+                ? games 
+                : games.filter(game => game.category === filter);
+
+            grid.innerHTML = filteredGames.map(game => `
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-title">${game.title}</div>
+                        <span class="game-category">${game.category.toUpperCase()}</span>
+                    </div>
+                    <div class="game-body">
+                        <div class="game-section">
+                            <div class="section-content">
+                                ${game.description}
+                            </div>
+                            <div>
+                                <span class="players"><span class="icon">👥</span> ${game.players}</span>
+                                <span class="duration"><span class="icon">⏱️</span> ${game.duration}</span>
+                            </div>
+                        </div>
+
+                        <div class="game-section">
+                            <div class="section-title">
+                                <span class="icon">📋</span> Reglas
+                            </div>
+                            <div class="section-content">
+                                <ul>
+                                    ${game.rules.map(rule => `<li>${rule}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="game-section">
+                            <div class="section-title">
+                                <span class="icon">🎲</span> Materiales
+                            </div>
+                            <div class="section-content">
+                                <ul>
+                                    ${game.materials.map(material => `<li>${material}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        ${game.video ? `
+                        <div class="game-section">
+                            <div class="section-title">
+                                <span class="icon">🎥</span> Video Tutorial
+                            </div>
+                            <div class="section-content">
+                                <a href="${game.video}" target="_blank">Ver en YouTube</a>
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Event listeners para los botones de categoría
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                renderGames(e.target.dataset.category);
+            });
+        });
+
+        // Renderizar todos los juegos al cargar
+        renderGames();
+    </script>
 </body>
- <script src="script.js"></script>
 </html>

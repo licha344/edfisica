@@ -36,7 +36,7 @@
                 ]
             },
             {
-                title: "Monopoly",
+                title: "Mancha Quemados",
                 category: "mesa",
                 players: "2-8 jugadores",
                 duration: "60-180 min",
